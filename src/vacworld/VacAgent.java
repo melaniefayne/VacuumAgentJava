@@ -3,6 +3,7 @@ package vacworld;
 import vacworld.agent.Action;
 import vacworld.agent.Agent;
 import vacworld.agent.Percept;
+import vacworld.actions.VacPercept;
 import vacworld.actions.SuckDirt;
 import vacworld.actions.GoForward;
 import vacworld.actions.TurnLeft;
@@ -11,34 +12,44 @@ import vacworld.actions.ShutOff;
 
 public class VacAgent extends Agent {
 
-    // Constructor
-    public VacAgent() {
-        // Initialization code, if needed
-    }
+    private VacPercept currentPercept;  // Store the current percept
+    private boolean allClean = false;   // Track if all dirt is cleaned
+    private int movesMade = 0;          // Track the number of moves made
 
-    // Implement the see() method, matching the signature in Agent.java
+    // Method to process the environment's percepts
     @Override
     public void see(Percept percept) {
-        // Check if the percept is an instance of VacPercept
-        if (percept != null) {
-            Percept vacPercept = (Percept) percept;
-            // Process VacPercept (e.g., checking for dirt or obstacles)
-        } else {
-            System.out.println("ERROR - Percept is not of type VacPercept");
+        // Store the current percept for future decision-making
+        if (percept instanceof VacPercept) {
+            currentPercept = (VacPercept) percept;
         }
     }
 
-    // Implement the selectAction() method
+    // Method to decide the next action
     @Override
     public Action selectAction() {
-        // Logic to decide which action to take
-        // Example: return new GoForward();
-        return new GoForward();  // Placeholder action
+        // Ensure the agent has seen something before selecting an action
+        if (currentPercept == null) {
+            return new GoForward();  // Default action if no percept is available
+        }
+
+        // Priority 1: Check if there's dirt on the current square
+        if (currentPercept.seeDirt()) {
+            return new SuckDirt();  // Suck dirt if present
+        }
+
+        // Priority 2: Check if there's an obstacle ahead
+        if (currentPercept.seeObstacle()) {
+            return new TurnLeft();  // Turn left if there's an obstacle ahead
+        }
+
+        // Priority 3: Otherwise, move forward
+        return new GoForward();
     }
 
-    // Implement the getId() method
+    // Return a unique identifier for the agent
     @Override
     public String getId() {
-        return "MyVacuumAgent";  // Unique ID for your agent
+        return "MyVacuumAgent";
     }
 }
