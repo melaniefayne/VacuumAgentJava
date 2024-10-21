@@ -1,6 +1,6 @@
 # Vacuum Cleaner Agent
 
-This project implements an intelligent agent for a vacuum cleaner simulation in Java. The agent’s task is to autonomously clean a room while avoiding obstacles and minimizing movement. The agent operates in a grid environment where it can perceive dirt, obstacles, and bumps, and performs actions such as moving forward, turning, and cleaning.
+This project implements an intelligent agent for a vacuum cleaner simulation in Java. The agent’s task is to clean a room while avoiding obstacles and minimizing movement autonomously. The agent operates in a grid environment where it can perceive dirt, obstacles, and bumps, and performs actions such as moving forward, turning, and cleaning.
 
 ![Intro](src/assets/play.gif)
 
@@ -21,7 +21,7 @@ This project implements an intelligent agent for a vacuum cleaner simulation in 
     - The agent (`A`, `>`, `<`, `V`) represents the vacuum cleaner, with the symbol indicating the agent’s direction.
 
 2. **User Interface**:
-    - A **Graphical User Interface (GUI)** built with Java Swing to display the grid and agent's movement in real-time.
+    - A **Graphical User Interface (GUI)** built with Java Swing to display the grid and agent's movement in real time.
     - A **"Next" Button** allows users to progress the simulation step by step.
     - The GUI shows the **Percept** and **Action** taken by the agent at each step.
     - The final score and performance evaluation are displayed after the agent shuts off.
@@ -61,7 +61,7 @@ This project implements an intelligent agent for a vacuum cleaner simulation in 
 ## How the Agent Works
 
 - **Starting Position**: The agent begins in the upper-left corner (1,1), always facing north.
-- **Perception**: At each step, the agent perceives its environment, including whether it’s on dirt, whether there’s an obstacle in front, and if it bumped into an obstacle on the last move.
+- **Perception**: At each step, the agent perceives its environment, including whether it’s on dirt, an obstacle in front, and if it bumped into an obstacle on the last move.
 - **Action Selection**: The agent uses the percepts to decide its next move, aiming to clean all dirt and avoid obstacles.
 - **Completion**: Once the room is clean, the agent returns to its starting position and shuts off.
 
@@ -72,17 +72,6 @@ The agent is scored based on:
 - **Bumps**: Avoiding bumping into obstacles,
 - **Dirt left**: Ensuring all dirt is cleaned before shutting off.
 
----
-
-## Demo
-
-### Initial Setup:
-![Initial Grid](src/assets/initial.png)
-
-### Mid-simulation:
-![Mid-simulation](src/assets/action.png)
-
-### Final Score:
 ![Final Score](src/assets/end.png)
 
 ---
