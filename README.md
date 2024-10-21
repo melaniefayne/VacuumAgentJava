@@ -47,11 +47,11 @@ This project implements an intelligent agent for a vacuum cleaner simulation in 
 3. **Running the Project**:
     - Compile the Java files:
       ```bash
-      javac src/vacworld/agent/.java src/vacworld/actions/.java src/vacworld/*.java
+       javac -d out src/vacworld/agent/*.java src/vacworld/actions/*.java src/vacworld/*.java
       ```
     - Run the simulation:
       ```bash
-      java -cp src vacworld.actions. VacuumWorld
+      java -cp out vacworld.actions.VacuumWorld 
       ```
 
 ---

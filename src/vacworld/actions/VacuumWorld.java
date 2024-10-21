@@ -359,7 +359,7 @@ public class VacuumWorld extends Environment {
     // GUI helpers *******
     public void nextAction() {
         if (!isComplete()) {
-            Agent a = (Agent) agents.getFirst();
+            Agent a = (Agent) agents.get(0);
             Percept p = getPercept(a);
             a.see(p);
             Action action = a.selectAction();
