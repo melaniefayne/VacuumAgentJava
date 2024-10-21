@@ -2,7 +2,7 @@
 
 This project implements an intelligent agent for a vacuum cleaner simulation in Java. The agent’s task is to autonomously clean a room while avoiding obstacles and minimizing movement. The agent operates in a grid environment where it can perceive dirt, obstacles, and bumps, and performs actions such as moving forward, turning, and cleaning.
 
-![Intro](src/assets/VacuumWorldAgent.png)
+![Intro](src/assets/play.gif)
 
 ### Agent Features:
 - **Perception**: The agent can sense dirt, obstacles in front, and if it has bumped into something.
@@ -12,6 +12,8 @@ This project implements an intelligent agent for a vacuum cleaner simulation in 
 ---
 
 ## Features
+
+![Intro](src/assets/intro.png)
 
 1. **Grid Representation**: The environment is represented as a grid, where:
     - `X` represents walls or obstacles,
