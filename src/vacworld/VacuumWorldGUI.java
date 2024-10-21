@@ -16,7 +16,7 @@ public class VacuumWorldGUI extends JFrame {
 
     // Initialize the GUI as before
     public VacuumWorldGUI() {
-        JFrame frame = new JFrame("Vacuum Cleaner Grid");
+        JFrame frame = new JFrame("Vacuum World");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(600, 500);
 
