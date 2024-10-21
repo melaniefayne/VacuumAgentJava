@@ -350,5 +350,29 @@ public class VacuumState extends State {
 		}
 		return "A";
 	}
+
+	// GUI Helpers *****
+	public char[][] getGrid() {
+		char[][] grid = new char[width][height];
+
+		for (int i = 0; i < width; i++) {
+			for (int j = 0; j < height; j++) {
+				if (i == agentX && j == agentY) {
+					// Place the agent in the grid
+					grid[i][j] = getAgentCharacter().charAt(0);
+				} else if (hasDirt(i, j)) {
+					// Place dirt in the grid
+					grid[i][j] = '*';
+				} else if (hasObstacle(i, j)) {
+					// Place walls in the grid
+					grid[i][j] = 'X';
+				} else {
+					// Empty space
+					grid[i][j] = ' ';
+				}
+			}
+		}
+		return grid;
+	}
 }
 
