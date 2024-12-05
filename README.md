@@ -4,16 +4,25 @@ This project implements an intelligent agent for a vacuum cleaner simulation in 
 
 ![Intro](src/assets/play.gif)
 
-### Agent Features:
-- **Perception**: The agent can sense dirt, obstacles in front, and if it has bumped into something.
-- **Actions**: The agent can move forward, turn left, turn right, suck dirt, and shut off once the room is clean.
-- **Efficiency**: The agent is designed to minimize unnecessary movements and only clean when necessary.
+## How the Agent Works
+
+- **Starting Position**: The agent begins in the upper-left corner (1,1), always facing north.
+- **Perception**: At each step, the agent perceives its environment, including whether it’s on dirt, an obstacle in front, and if it bumped into an obstacle on the last move.
+- **Action Selection**: The agent uses the percepts to decide its next move, aiming to clean all dirt and avoid obstacles.
+- **Completion**: Once the room is clean, the agent returns to its starting position and shuts off.
+
+### Performance Metrics:
+The agent is scored based on:
+- **Moves**: Minimizing unnecessary movement,
+- **Turns**: Reducing excessive turning,
+- **Bumps**: Avoiding bumping into obstacles,
+- **Dirt left**: Ensuring all dirt is cleaned before shutting off.
+
+![Final Score](src/assets/end.png)
 
 ---
 
 ## Features
-
-![Intro](src/assets/intro.png)
 
 1. **Grid Representation**: The environment is represented as a grid, where:
     - `X` represents walls or obstacles,
@@ -56,22 +65,4 @@ This project implements an intelligent agent for a vacuum cleaner simulation in 
       java -cp out vacworld.actions.VacuumWorld 
       ```
 
----
-
-## How the Agent Works
-
-- **Starting Position**: The agent begins in the upper-left corner (1,1), always facing north.
-- **Perception**: At each step, the agent perceives its environment, including whether it’s on dirt, an obstacle in front, and if it bumped into an obstacle on the last move.
-- **Action Selection**: The agent uses the percepts to decide its next move, aiming to clean all dirt and avoid obstacles.
-- **Completion**: Once the room is clean, the agent returns to its starting position and shuts off.
-
-### Performance Metrics:
-The agent is scored based on:
-- **Moves**: Minimizing unnecessary movement,
-- **Turns**: Reducing excessive turning,
-- **Bumps**: Avoiding bumping into obstacles,
-- **Dirt left**: Ensuring all dirt is cleaned before shutting off.
-
-![Final Score](src/assets/end.png)
-
----
+![Intro](src/assets/intro.png)
